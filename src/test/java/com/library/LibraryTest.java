@@ -2,19 +2,12 @@ package com.library;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class LibraryTest {
-	private Library library;
-
-	@BeforeEach
-	public void setUp() {
-		library = new Library();
-	}
-
 	@Test
 	public void testAddBook() {
+		Library library = new Library();
 		Book book = new Book("Test Book", "Test Author", 2025);
 
 		library.addBook(book);
@@ -25,6 +18,8 @@ public class LibraryTest {
 
 	@Test
 	public void testAddNullBook() {
+		Library library = new Library();
+
 		assertThrows(IllegalArgumentException.class, () -> {
 			library.addBook(null);
 		});
@@ -32,6 +27,7 @@ public class LibraryTest {
 
 	@Test
 	public void testDeleteBook() {
+		Library library = new Library();
 		Book book = new Book("Test Book", "Test Author", 2025);
 
 		library.addBook(book);
@@ -42,6 +38,7 @@ public class LibraryTest {
 
 	@Test
 	public void testDeleteBookNotFound() {
+		Library library = new Library();
 		Book book = new Book("Test Book", "Test Author", 2025);
 
 		library.addBook(book);
@@ -52,6 +49,8 @@ public class LibraryTest {
 
 	@Test
 	public void testDeleteBookEmptyTitle() {
+		Library library = new Library();
+
 		assertThrows(IllegalArgumentException.class, () -> {
 			library.deleteBook("");
 		});
@@ -59,6 +58,7 @@ public class LibraryTest {
 
 	@Test
 	public void testSearchBook() {
+		Library library = new Library();
 		Book book = new Book("Test Book", "Test Author", 2025);
 
 		library.addBook(book);
@@ -68,6 +68,8 @@ public class LibraryTest {
 
 	@Test
 	public void testSearchBookEmptyTitle() {
+		Library library = new Library();
+
 		assertThrows(IllegalArgumentException.class, () -> {
 			library.searchBook("");
 		});
@@ -75,6 +77,7 @@ public class LibraryTest {
 
 	@Test
 	public void testSearchBookNotFound() {
+		Library library = new Library();
 		Book book = new Book("Test Book", "Test Author", 2025);
 
 		library.addBook(book);
@@ -84,6 +87,7 @@ public class LibraryTest {
 
 	@Test
 	public void testPartialSearchBook() {
+		Library library = new Library();
 		Book book = new Book("Test Book", "Test Author", 2025);
 
 		library.addBook(book);
@@ -93,6 +97,8 @@ public class LibraryTest {
 
 	@Test
 	public void testPartialSearchBookEmptyTitle() {
+		Library library = new Library();
+
 		assertThrows(IllegalArgumentException.class, () -> {
 			library.partialSearchBook("");
 		});
@@ -100,6 +106,7 @@ public class LibraryTest {
 
 	@Test
 	public void testPartialSearchBookNotFound() {
+		Library library = new Library();
 		Book book = new Book("Test Book", "Test Author", 2025);
 
 		library.addBook(book);
@@ -109,6 +116,7 @@ public class LibraryTest {
 
 	@Test
 	public void testSortBooks() {
+		Library library = new Library();
 		Book book1 = new Book("B Book", "Author B", 2020);
 		Book book2 = new Book("A Book", "Author A", 2021);
 		Book book3 = new Book("C Book", "Author C", 2019);
