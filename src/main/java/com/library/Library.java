@@ -25,11 +25,6 @@ public class Library {
 			throw new IllegalArgumentException("Title cannot be null or empty");
 		}
 
-		if (searchBook(title) == null) {
-			System.out.println("Book not found");
-
-			return;
-		}
 
 		books.removeIf(book -> book.getTitle().equals(title));
 	}
